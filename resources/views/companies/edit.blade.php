@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group my-3">
-                            <strong>Company Name</strong>
+                            <strong>ชื่อบริษัท</strong>
                             <input type="text" name="name" value="{{ $company->name }}" class="form-control" placeholder="Company Name">
                             @error('name')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group my-3">
-                            <strong>Company Email</strong>
+                            <strong>Email บริษัท</strong>
                             <input type="email" name="email" value="{{ $company->email }}" class="form-control" placeholder="Company Email">
                             @error('email')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -46,7 +46,16 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group my-3">
-                            <strong>Company Address</strong>
+                            <strong>เบอร์บริษัท</strong>
+                            <input type="text" name="phon" value="{{ $company->phon }}" class="form-control" placeholder="Company Phon">
+                            @error('phon')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group my-3">
+                            <strong>ที่อยู่บริษัท</strong>
                             <input type="text" name="address" value="{{ $company->address }}" class="form-control" placeholder="Company Address">
                             @error('address')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -54,7 +63,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="mt-3 btn btn-primary">Submit</button>
+                        <button type="submit" class="mt-3 btn btn-success">ยืนยัน</button>
                     </div>
                 </div>
             </form>

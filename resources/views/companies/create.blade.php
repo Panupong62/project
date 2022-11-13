@@ -12,7 +12,7 @@
     <div class="container mt-2">
         <div class="row">
             <div class="col-lg-12">
-                <h2>Add Company</h2>
+                <h2>เพิ่ม บริษัท</h2>
             </div>
             <div>
                 <a href="{{ route('companies.index') }}" class="btn btn-primary">Back</a>
@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group my-3">
-                            <strong>Company Name</strong>
+                            <strong>ชื่อบริษัท</strong>
                             <input type="text" name="name" class="form-control" placeholder="Company Name">
                             @error('name')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group my-3">
-                            <strong>Company Email</strong>
+                            <strong>Email บริษัท</strong>
                             <input type="email" name="email" class="form-control" placeholder="Company Email">
                             @error('email')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -45,7 +45,16 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group my-3">
-                            <strong>Company Address</strong>
+                            <strong>เบอร์โทรบริษัท</strong>
+                            <input type="text" name="phon" class="form-control" placeholder="Company phon">
+                            @error('address')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group my-3">
+                            <strong>ที่อยู่บริษัท</strong>
                             <input type="text" name="address" class="form-control" placeholder="Company Address">
                             @error('address')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -53,7 +62,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="mt-3 btn btn-primary">Submit</button>
+                        <button type="submit" class="mt-3 btn btn-success">ยืนยัน</button>
                     </div>
                 </div>
             </form>

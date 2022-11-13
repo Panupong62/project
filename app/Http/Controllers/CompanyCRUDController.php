@@ -22,38 +22,45 @@ class CompanyCRUDController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
+            'phon' => 'required',
             'address' => 'required'
         ]);
 
         $company = new Company;
         $company->name = $request->name;
         $company->email = $request->email;
+        $company->phon = $request->phon;
         $company->address = $request->address;
         $company->save();
-        return redirect()->route('companies.index')->with('success', 'Company has been created successfully.');
+        return redirect()->route('companies.index')->with('success', 'เพิ่มข้อมูลสำเร็จแล้ว.');
     }
 
     public function edit(Company $company) {
         return view('companies.edit', compact('company'));
+    }
+    public function show(Company $company) {
+        return view('companies.show', compact('company'));
     }
 
     public function update(Request $request, $id) {
         $request->validate([
             'name' => 'required',
             'email' => 'required',
+            'phon' => 'required',
             'address' => 'required'
         ]);
         $company = Company::find($id);
         $company->name = $request->name;
         $company->email = $request->email;
+        $company->phon = $request->phon;
         $company->address = $request->address;
         $company->save();
-        return redirect()->route('companies.index')->with('success', 'Company has been updated successfully.');
+        return redirect()->route('companies.index')->with('success', 'แก้ไขข้อมูลสำเร็จแล้ว.');
     }
 
     public function destroy(Company $company) {
         $company->delete();
-        return redirect()->route('companies.index')->with('success', 'Company has been deleted successfully.');
+        return redirect()->route('companies.index')->with('success', 'ทำการลบข้อมูลสำเร็จแล้ว.');
     }
 
 }

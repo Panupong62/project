@@ -13,7 +13,7 @@
             <div class="col-lg-12 text-center">
                 <h2>รายชื่อบริษัท</h2>
             </div>
-            <div><a href="{{ route('companies.create') }}" class="btn btn-success">Create Company</a>
+            <div><a href="{{ route('companies.create') }}" class="btn btn-success">เพิ่มเชื่อบริษัท</a>
             </div> 
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -25,20 +25,23 @@
                 <tr >
                     
                     <th>No.</th>
-                    <th>Company Name</th>
-                    <th>Company Email</th>
-                    <th>Company Address</th>
-                    <th width="280px">Action</th>
+                    <th>ชื่อบริษัท</th>
+                    <th>Email บริษัท</th>
+                    <th>เบอร์โทรบริษัท</th>
+                    <th>ที่อยู่บริษัท</th>
+                    <th width="280px">จัดการข้อมูล</th>
                 </tr>
                 @foreach($companies as $company)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $company->name }}</td>
                         <td>{{ $company->email }}</td>
+                        <td>{{ $company->phon }}</td>
                         <td>{{ $company->address }}</td>
                         
                         <td>
                             <form action="{{ route('companies.destroy', $company->id) }}" method="POST">
+                                <a href="{{ route('companies.show', $company->id) }}" class="btn btn-primary">view</a>
                                 <a href="{{ route('companies.edit', $company->id) }}" class="btn btn-warning">Edit</a>
                                 @csrf
                                 @method('DELETE')
